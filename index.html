@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>WorldQuiz</title>
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+	<link type="text/css" href="style.css" rel="stylesheet" />
+
+	<!-- lib -->
+	<script type="text/javascript" src="js/deps/jquery-1.6.3.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+	<!-- game -->
+	<script type="text/javascript" src="js/levels.js"></script>
+	<script type="text/javascript" src="js/game.js"></script>
+
+</head>
+<body>
+
+	<div id="container">
+
+		<div id="map"></div>
+
+		<div id="welcome" class="notice">
+			<h2>Welcome to the Worldquiz!</h2>
+			<div id="startGameButton" class="button">Start Game</div>
+		</div>
+
+		<div id="startLevel" class="hidden notice">
+			<h3>
+				Level
+				<script>WQ.level.place("number")</script>
+				:
+			</h3>
+			<h2>
+				<script>WQ.level.place("name")</script>
+			</h2>
+			<div id="startLevelButton" class="button">Start Level</div>
+		</div>
+
+		<div id="result" class="hidden notice">
+			<h3>
+				Distance:
+				<script>WQ.round.place("distance")</script>
+				km
+			</h3>
+			<h3>
+				Points:
+				<script>WQ.round.place("points")</script>
+				pt.
+			</h3>
+			<div id="pauseButton" class="button">Pause</div>
+			<div id="nextButton" class="button">
+				<div id="resultTime"></div>
+				<span>Next</span>
+			</div>
+		</div>
+
+		<div id="gameOver" class="hidden notice">
+			<h2>Game Over!</h2>
+			<h3>
+				You reached
+				<script>WQ.level.place("accumulatedPoints")</script>
+				/
+				<script>WQ.level.place("neededPoints")</script>
+				Points.
+			</h3>
+			<div id="retryButton" class="button">Retry</div>
+		</div>
+
+		<div id="gameWon" class="hidden notice">
+			<h2>Contratulations!</h2>
+			<h2>You finished all Levels</h2>
+		</div>
+
+		<div id="statusbar">
+			<div id="time">&nbsp;</div>
+			<div id="points">
+				<script>WQ.level.place("accumulatedPoints")</script>
+				/
+				<script>WQ.level.place("neededPoints")</script>
+			</div>
+			<h1 id="target">
+				<script>WQ.round.place("target")</script>
+			</h1>
+		</div>
+
+	</div>
+	
+</body>
+</html>
