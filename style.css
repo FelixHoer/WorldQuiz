@@ -1,93 +1,106 @@
-html, body, #container { 
-      height: 100%; 
-      margin: 0px; 
-      padding: 0px; 
-      position: relative;
-}
-.hidden{
-    display: none;
+html, body, #container {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
 }
 
-#map { 
-    height: 100%; 
-    width: 100%; 
-}
-#container #map *{
-    cursor: crosshair;
+.hidden {
+	display: none;
 }
 
-#statusbar{
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-    background-color: rgba(255,255,255,0.5);
-    overflow: hidden;
-}
-#target{
-    position: relative;
-    text-align: center;
-    margin: 0px;
-    padding: 6px;
-    font-size: 24px;
-    border: 2px solid #444;
-    z-index: 100;
-}
-#time{
-    position: absolute;
-    width: 0%;
-    height: 100%;
-    background-image: url(img/bar.png);
-    border-right: 1px solid #444;
-    z-index: 98;
-}
-#points{
-    position: absolute;
-    right: 0px;
-    padding: 10px;
-    font-size: 20px;
-    z-index: 99;
+#map {
+	height: 100%;
+	width: 100%;
 }
 
-.notice{
-    position: absolute;
-    bottom: 42px;
-    left: 35%;
-    width: 30%;
-    padding: 10px;
-    z-index: 97;
-    background-color: #fff;
-    text-align: center;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border: 2px solid #444;
-    border-bottom: none;
+#container #map * {
+	cursor: crosshair;
 }
-.button{
-    position: relative;
-    display: inline-block;
-    width: 5em;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background-image: url(img/silver.png);
-    font-size: 1.4em;
+
+#statusbar {
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	background-color: rgba(255, 255, 255, 0.5);
+	overflow: hidden;
 }
-.button span{
-    position: relative;
-    z-index: 80;
-    padding: 5px;
+
+#statusbar #target {
+	position: relative;
+	text-align: center;
+	margin: 0px;
+	padding: 6px;
+	font-size: 24px;
+	border: 2px solid #444;
+	z-index: 100;
 }
-#result span{
+
+#statusbar #time {
+	position: absolute;
+	width: 0%;
+	height: 100%;
+	background: #c80303 url(img/bar.png) repeat-x;
+	border-right: 1px solid #444;
+	z-index: 98;
+}
+
+#statusbar #points {
+	position: absolute;
+	right: 0px;
+	padding: 10px;
+	font-size: 20px;
+	z-index: 99;
+}
+
+.notice {
+	position: absolute;
+	bottom: 50px;
+	left: 35%;
+	width: 30%;
+	padding: 10px;
+	z-index: 97;
+	background-color: #fff;
+	text-align: center;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border: 2px solid #444;
+}
+
+.button {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	margin: 3px;
+	padding: 0 15px;
+	cursor: pointer;
+	border: 1px solid #444;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background: #9f9f9e url(img/silver.png) repeat-x;
+	font-size: 1.4em;
+}
+
+.button span {
+	position: relative;
+	z-index: 80;
+}
+
+#result span {
 	font-size: 2em;
 }
-#result .button span{
+
+#result .button span {
 	font-size: 1em;
 }
-#resultTime{
-    position: absolute;
-    z-index: 79;
-    background-image: url(img/bar.png);
-    width: 0%;
-    height: 100%;
+
+#resultTime {
+	position: absolute;
+	z-index: 79;
+	background-image: url(img/bar.png);
+	width: 0%;
+	height: 100%;
+	left: 0px;
 }

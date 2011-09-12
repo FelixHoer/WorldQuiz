@@ -2,8 +2,7 @@ var WQ = (function(){
 	
 	//### Constants ##############################################################
 	
-	var maxRounds = 6; // for now... usually: 10;
-	
+	var maxRounds = 8;
 	var maxTime = 6 * 1000; // ms
 	var maxTimePoints = 1000;
 	var maxDistancePoints = 4000;
