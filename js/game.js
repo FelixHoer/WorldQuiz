@@ -3,7 +3,8 @@ var WQ = (function(){
 	//### Constants ##############################################################
 	
 	var maxRounds = 8;
-	var maxTime = 6 * 1000; // ms
+	var maxRoundTime = 6 * 1000; // ms
+	var maxNextTime = 3 * 1000; // ms
 	var maxTimePoints = 1000;
 	var maxDistancePoints = 4000;
 	
@@ -73,7 +74,7 @@ var WQ = (function(){
 	};
 
 	//----------------------------------------------------------------------------
-	var getTimePercent = function(startTime){
+	var getTimePercent = function(startTime, maxTime){
 		var percent = 100 * (getTime() - startTime) / maxTime;
 		return percent > 100 ? 100 : percent;
 	};
@@ -231,7 +232,7 @@ var WQ = (function(){
 		// states
 
 		var checkTime = function(){
-			var percent = getTimePercent(startTime);
+			var percent = getTimePercent(startTime, maxRoundTime);
 			$('#time').css('width', percent + '%');
 			if(percent >= 100)
 				timeRanOut();
@@ -266,7 +267,8 @@ var WQ = (function(){
 			var markPosition = new google.maps.LatLng(pos.lat, pos.lng);
 			var distance = parseInt(getDistance(guess, markPosition));
 			var distancePoints = maxDistancePoints * getDistanceReduction(distance);
-			var timePoints = maxTimePoints * getTimePercent(startTime) / 100;
+			var timePercent = getTimePercent(startTime, maxRoundTime);
+			var timePoints = maxTimePoints * timePercent / 100;
 			var points = parseInt(distancePoints) + parseInt(timePoints);
 
 			models.round.set({
@@ -344,7 +346,7 @@ var WQ = (function(){
 		// states
 
 		var checkTime = function(){
-			var percent = 2 * getTimePercent(startTime);
+			var percent = getTimePercent(startTime, maxNextTime);
 			$('#resultTime').css('width', percent + '%');
 			if(percent >= 100)
 				next();
@@ -394,7 +396,7 @@ var WQ = (function(){
 					{ visibility: 'simplified' },
 					{ saturation: 98 }
 				]
-			},{
+			}, {
 				featureType: 'all',
 				elementType: 'labels',
 				stylers: [
@@ -419,8 +421,8 @@ var WQ = (function(){
 
 		return map;
 	};
-	
-	//document ready
+
+	//############################### DOCUMENT READY #############################
 
 	$(document).ready(function(){
 		var map = createMap();
@@ -430,6 +432,8 @@ var WQ = (function(){
 			startGame(map, levels);
 		});
 	});
+
+	//################################# INTERFACE ################################
 	
 	var models = {
 		
